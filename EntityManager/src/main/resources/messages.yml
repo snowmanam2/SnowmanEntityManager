@@ -1,0 +1,25 @@
+command:
+  base:
+    usage: "&3Usage: /{0} <{1}>"
+    notfound: "&cSubcommand `&4{0}&c` not found."
+    playerOnly: "&cThis command can only be used by a player."
+  mode:
+    usage: "&3Usage: /{0} [{1}]"
+    display: "&aFilter mode is currently &5{0}&a."
+    failureIllegalMode: "&cInvalid mode `&4{0}&c`."
+    success: "&aFilter mode set to &5{0}&a"
+  list:
+    header: "&3Item types in your filter:"
+    item: "&3- &5{0}"
+  clear:
+    success: "&aFilter list cleared."
+  add:
+    usage: "&3Usage: /{0} <item type>"
+    failureInvalidMaterial: "&cInvalid item type `&4{0}&c`."
+    failureAlreadyExists: "&cItem type `&5{0}&c` is already in your filter."
+    success: "&aAdded item type `&5{0}&a` to your filter."
+  remove:
+    usage: "&3Usage: /{0} <item type>"
+    failureInvalidMaterial: "&cInvalid item type `&4{0}&c`."
+    failureNoExist: "&cItem type `&5{0}&c` is not in your filter."
+    success: "&aRemoved item type `&5{0}&a` from your filter."

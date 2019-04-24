@@ -1,0 +1,12 @@
+name: EntityManager
+main: com.gmail.snowmanam2.entitymanager.EntityManager
+version: 0.0.1
+author: snowman_am2
+softdepend: 
+commands:
+  inventoryfilter:
+    description: Use the inventory filter
+    usage: /inventoryfilter <command>
+    aliases: [if]
+    permission: entitymanager.inventoryfilter
+    permission-message: You don't have permission to do that.
