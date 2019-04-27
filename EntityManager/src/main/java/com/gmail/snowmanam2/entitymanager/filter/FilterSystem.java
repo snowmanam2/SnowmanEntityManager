@@ -38,7 +38,10 @@ public class FilterSystem implements Listener {
 	
 	public void init(JavaPlugin plugin) {
 		playerSettings = new HashMap<UUID, FilterSettings>();
-		plugin.getCommand("inventoryfilter").setExecutor(new CmdFilter());
+		
+		CmdFilter cmdFilter = new CmdFilter();
+		plugin.getCommand("inventoryfilter").setExecutor(cmdFilter);
+		plugin.getCommand("inventoryfilter").setTabCompleter(cmdFilter);
 		plugin.getServer().getPluginManager().registerEvents(this, plugin);
 		FilterSettingsConfig.get().load(plugin);
 	}

@@ -1,14 +1,16 @@
 package com.gmail.snowmanam2.entitymanager.filter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.bukkit.Material;
 import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import com.gmail.snowmanam2.entitymanager.Messages;
 
-public class CmdAdd implements CommandExecutor {
+public class CmdAdd implements CmdChild {
 	
 	public void printUsage(CommandSender sender, String label) {
 		sender.sendMessage(Messages.get("command.add.usage", label));
@@ -46,6 +48,30 @@ public class CmdAdd implements CommandExecutor {
 		sender.sendMessage(Messages.get("command.add.success", mat));
 		
 		return true;
+	}
+
+	public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
+		
+		List<String> retval = new ArrayList<String>();
+		
+		if (args.length == 0) {
+			for (Material mat : Material.values()) {
+				retval.add(mat.toString().toLowerCase());
+			}
+			
+			return retval;
+		} else if (args.length == 1) {
+			for (Material mat : Material.values()) {
+				String matString = mat.toString().toLowerCase();
+				
+				if (matString.startsWith(args[0].toLowerCase())) {
+					retval.add(matString);
+				}
+			}
+			return retval;
+		}
+		
+		return new ArrayList<String>();
 	}
 
 }

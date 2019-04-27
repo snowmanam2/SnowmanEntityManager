@@ -4,13 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import com.gmail.snowmanam2.entitymanager.Messages;
 
-public class CmdMode implements CommandExecutor {
+public class CmdMode implements CmdChild{
 
 	public void printUsage(CommandSender sender, String label) {
 		sender.sendMessage(Messages.get("command.mode.usage", label, listModes()));
@@ -58,6 +57,30 @@ public class CmdMode implements CommandExecutor {
 		sender.sendMessage(Messages.get("command.mode.success", newMode));
 		
 		return true;
+	}
+
+	public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
+		if (args.length == 0) {
+			List<String> retval = new ArrayList<String>();
+			
+			for (FilterMode mode : FilterMode.values()) {
+				retval.add(mode.toString().toLowerCase());
+			}
+			
+			return retval;
+		} else if (args.length == 1) {
+			List<String> retval = new ArrayList<String>();
+			
+			for (FilterMode mode : FilterMode.values()) {
+				if (mode.toString().startsWith(args[0].toUpperCase())) {
+					retval.add(mode.toString().toLowerCase());
+				}
+			}
+			
+			return retval;
+		}
+		
+		return new ArrayList<String>();
 	}
 
 }
