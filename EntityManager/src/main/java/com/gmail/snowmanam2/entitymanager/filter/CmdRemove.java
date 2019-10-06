@@ -36,12 +36,12 @@ public class CmdRemove implements CmdChild {
 		try {
 			mat = Material.valueOf(args[0].toUpperCase());
 		} catch (IllegalArgumentException e) {
-			sender.sendMessage(Messages.get("command.remove.failureInvalidMaterial"));
+			sender.sendMessage(Messages.get("command.remove.failureInvalidMaterial", args[0]));
 			return true;
 		}
 		
 		if (!settings.removeMaterial(mat)) {
-			sender.sendMessage(Messages.get("command.remove.failureNoExist"));
+			sender.sendMessage(Messages.get("command.remove.failureNoExist", args[0]));
 			return true;
 		}
 		

@@ -79,7 +79,7 @@ public class CmdBase implements CommandExecutor, TabCompleter {
 				subcommand = aliases.get(subcommand);
 			}
 			
-			if (!children.containsKey(subcommand)) new ArrayList<String>();
+			if (!children.containsKey(subcommand)) return new ArrayList<String>();
 			
 			CmdChild child = children.get(subcommand);
 			

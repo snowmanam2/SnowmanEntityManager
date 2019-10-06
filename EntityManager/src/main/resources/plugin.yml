@@ -9,4 +9,3 @@ commands:
     usage: /inventoryfilter <command>
     aliases: [if]
     permission: entitymanager.inventoryfilter
-    permission-message: You don't have permission to do that.
