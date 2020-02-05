@@ -16,10 +16,11 @@ command:
   add:
     usage: "&3Usage: /{0} <item type>"
     failureInvalidMaterial: "&cInvalid item type `&4{0}&c`."
+    failureAir: "&cCannot add air to the item filter."
     failureAlreadyExists: "&cItem type `&5{0}&c` is already in your filter."
     success: "&aAdded item type `&5{0}&a` to your filter."
   remove:
-    usage: "&3Usage: /{0} <item type>"
+    usage: "&3Usage: /{0} <item type | hand>"
     failureInvalidMaterial: "&cInvalid item type `&4{0}&c`."
     failureNoExist: "&cItem type `&5{0}&c` is not in your filter."
     success: "&aRemoved item type `&5{0}&a` from your filter."

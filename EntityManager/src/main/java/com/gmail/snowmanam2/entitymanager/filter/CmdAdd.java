@@ -7,6 +7,7 @@ import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 
 import com.gmail.snowmanam2.entitymanager.Messages;
 
@@ -33,10 +34,21 @@ public class CmdAdd implements CmdChild {
 		
 		Material mat;
 		
-		try {
-			mat = Material.valueOf(args[0].toUpperCase());
-		} catch (IllegalArgumentException e) {
-			sender.sendMessage(Messages.get("command.add.failureInvalidMaterial", args[0]));
+		if (args[0].equalsIgnoreCase("hand")) {
+			ItemStack handStack = p.getItemInHand();
+			
+			mat = handStack.getType();
+		} else {
+			try {
+				mat = Material.valueOf(args[0].toUpperCase());
+			} catch (IllegalArgumentException e) {
+				sender.sendMessage(Messages.get("command.add.failureInvalidMaterial", args[0]));
+				return true;
+			}
+		}
+		
+		if (mat.equals(Material.AIR)) {
+			sender.sendMessage(Messages.get("command.add.failureAir"));
 			return true;
 		}
 		
