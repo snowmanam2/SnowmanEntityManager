@@ -53,7 +53,7 @@ public class CmdAdd implements CmdChild {
 		}
 		
 		if (!settings.addMaterial(mat)) {
-			sender.sendMessage(Messages.get("command.add.failureAlreadyExists", args[0]));
+			sender.sendMessage(Messages.get("command.add.failureAlreadyExists", mat.toString()));
 			return true;
 		}
 		

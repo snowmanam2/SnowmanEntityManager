@@ -24,7 +24,7 @@ public class CmdList implements CmdChild {
 		sender.sendMessage(Messages.get("command.list.header"));
 		
 		for (String item : settings.getMaterialListing()) {
-			sender.sendMessage(Messages.get("command.list.item", item));
+			FilterItemDisplayUtil.displayItem(sender, item);
 		}
 		
 		return true;

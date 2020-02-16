@@ -44,6 +44,7 @@ public class FilterSystem implements Listener {
 		plugin.getCommand("inventoryfilter").setTabCompleter(cmdFilter);
 		plugin.getServer().getPluginManager().registerEvents(this, plugin);
 		FilterSettingsConfig.get().load(plugin);
+		FilterItemDisplayUtil.init(plugin);
 	}
 	
 	@EventHandler(priority=EventPriority.HIGH)
